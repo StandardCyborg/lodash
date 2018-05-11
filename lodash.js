@@ -2697,6 +2697,10 @@
         return result;
       }
 
+      if (isTypedArray(value)) {
+        return result;
+      }
+
       var keysFunc = isFull
         ? (isFlat ? getAllKeysIn : getAllKeys)
         : (isFlat ? keysIn : keys);

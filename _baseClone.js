@@ -14,6 +14,7 @@ var Stack = require('./_Stack'),
     initCloneByTag = require('./_initCloneByTag'),
     initCloneObject = require('./_initCloneObject'),
     isArray = require('./isArray'),
+    isTypedArray = require('./isTypedArray'),
     isBuffer = require('./isBuffer'),
     isMap = require('./isMap'),
     isObject = require('./isObject'),
@@ -149,6 +150,10 @@ function baseClone(value, bitmask, customizer, key, object, stack) {
       result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
     });
 
+    return result;
+  }
+
+  if (isTypedArray(value)) {
     return result;
   }
 
